@@ -10,10 +10,15 @@
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "serve": "vue-cli-service serve"
   },
   "dependencies": {
+    "axios": "^0.19.2",
+    "bootstrap": "^4.4.1",
+    "bootstrap-vue": "^2.4.2",
     "vue": "^2.5.2",
+    "vue-cli": "^2.9.6",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

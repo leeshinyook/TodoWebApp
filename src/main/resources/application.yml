@@ -3,7 +3,7 @@ spring:
       console:
           enabled: true
     datasource:
-      url: jdbc:h2:mem:testdb
+      url: jdbc:h2:file:~/leesh/testdb;AUTO_SERVER=TRUE
       username: sa
       password:
     jpa:
