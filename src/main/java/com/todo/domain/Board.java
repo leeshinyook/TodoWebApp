@@ -5,15 +5,18 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.apache.tomcat.jni.Local;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Getter
-@Setter
 @Entity
 @Table
+@Setter
 @NoArgsConstructor
 public class Board implements Serializable {
 
@@ -36,10 +39,11 @@ public class Board implements Serializable {
     private LocalDateTime updatedDate;
 
     @Builder
-    public Board(String content, BoardCategory boardCategory, LocalDateTime createdDate) {
+    public Board(String content, BoardCategory boardCategory, LocalDateTime createdDate, LocalDateTime updatedDate) {
         this.content = content;
-        this.boardCategory = boardCategory;
         this.createdDate = createdDate;
+        this.updatedDate = updatedDate;
+        this.boardCategory = boardCategory;
     }
 
     public void update(Board board) {

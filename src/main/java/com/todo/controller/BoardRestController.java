@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.xml.ws.Response;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,6 +51,7 @@ public class BoardRestController {
 
      @PostMapping
     public ResponseEntity<?> postBoard(@RequestBody Board board) {
+         board.setCreatedDate(LocalDateTime.now());
          boardRepository.save(board);
          return new ResponseEntity<>("", HttpStatus.CREATED);
      }
