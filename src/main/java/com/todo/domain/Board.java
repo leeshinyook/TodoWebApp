@@ -3,6 +3,7 @@ package com.todo.domain;
 import com.todo.domain.enums.BoardCategory;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 @Setter
 @Entity
 @Table
+@NoArgsConstructor
 public class Board implements Serializable {
 
     @Id

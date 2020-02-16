@@ -6,7 +6,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.xml.ws.Response;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/boards")
@@ -24,9 +26,17 @@ public class BoardRestController {
          return ResponseEntity.ok(boards);
      }
 
+     @GetMapping("/{id}")
+     public ResponseEntity<?> getOneBoard(@PathVariable("id") Long id) {
+         Optional<Board> board = boardRepository.findById(id);
+         return ResponseEntity.ok(board);
+     }
+
      @DeleteMapping("/{id}")
     public  ResponseEntity<?> deleteBoard(@PathVariable("id") Long id) {
-         boardRepository.deleteById(id);
+         Board board = boardRepository.getOne(id);
+//         Optional<Board/* /*/> board = boardRepository.findById(id);
+         boardRepository.deleteById(board.getId());
          return new ResponseEntity<>("", HttpStatus.OK);
      }
 
